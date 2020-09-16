@@ -1,0 +1,25 @@
+{
+  "name": "employeelog",
+  "version": "1.0.0",
+  "description": "A solution for managing a company's employees using node, inquirer, and MySQL.",
+  "main": "server.js",
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "inquirer": "^7.3.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roxonus/EmployeeLog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roxonus/EmployeeLog/issues"
+  },
+  "homepage": "https://github.com/roxonus/EmployeeLog#readme"
+}
