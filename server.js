@@ -42,3 +42,27 @@ const connection = mysql.createConnection({
               }
           })
   }
+
+  function addDepartment() {
+    inquirer
+      .prompt([
+        {
+          name: "division",
+          type: "input",
+          message: "What department do you want to add?",
+        }
+      ])
+      .then(function(answer) {
+        connection.query(
+          "INSERT INTO department SET ?",
+          {
+            name: answer.division
+          },
+          function(err) {
+            if (err) throw err;
+            console.log("Your department was added!");
+            runSearch();
+          }
+        );
+      });
+  }
