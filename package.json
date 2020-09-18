@@ -4,8 +4,10 @@
   "description": "A solution for managing a company's employees using node, inquirer, and MySQL.",
   "main": "server.js",
   "dependencies": {
-    "mysql": "^2.18.1",
-    "inquirer": "^7.3.3"
+    "console.table": "^0.10.0",
+    "ctable": "0.0.3",
+    "inquirer": "^7.3.3",
+    "mysql": "^2.18.1"
   },
   "devDependencies": {},
   "scripts": {

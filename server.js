@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 const mysql = require("mysql");
-
+const cTable = require('console.table');
 
 const connection = mysql.createConnection({
     host: "localhost",
@@ -146,3 +146,51 @@ const connection = mysql.createConnection({
         );
       });
   }
+
+  function viewData() {
+    inquirer
+      .prompt({
+        name: "table",
+        type: "list",
+        message: "What table would you like to view?",
+        choices: ["Department", "Role", "Employee"]
+      })
+      .then(function(answer) {
+        if (answer.table === "Department") {
+          viewDepartment();
+        }
+        else if(answer.table === "Role") {
+          viewRole();
+        } 
+        else if(answer.table === "Employee") {
+          viewEmployee();
+        }
+        else{
+          connection.end();
+        }
+      });
+  }
+
+  function viewDepartment() {
+    connection.query("SELECT * FROM department", function(err,res){
+      if (err) throw err;
+      console.table(res);
+      runSearch();
+    })
+  };
+  
+  function viewRole() {
+    connection.query("SELECT * FROM role", function(err,res){
+      if (err) throw err;
+      console.table(res);
+      runSearch();
+    })
+  };
+  
+  function viewEmployee() {
+    connection.query("SELECT * FROM employee", function(err,res){
+      if (err) throw err;
+      console.table(res);
+      runSearch();
+    })
+  };
